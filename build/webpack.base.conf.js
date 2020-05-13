@@ -9,9 +9,6 @@ function resolve (dir) {
 }
 
 module.exports = {
-  /*entry: {
-    app: './src/main.js'
-  },*/
   entry: utils.getEntries(resolve('src/module/**/*.js')),
   output: {
     path: config.build.assetsRoot,
@@ -19,9 +16,9 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
- /*   , library: 'iview',       // 模块名称
-    libraryTarget: 'umd',   // 输出格式
-    umdNamedDefine: true    // 是否将模块名称作为 AMD 输出的命名空间*/
+ /*   library: 'iview',       // 模块名称
+      libraryTarget: 'umd',   // 输出格式
+      umdNamedDefine: true    // 是否将模块名称作为 AMD 输出的命名空间*/
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

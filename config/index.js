@@ -1,26 +1,16 @@
 var path = require('path')
-let host='192.168.100.20'  //mac 
+
+let host='192.168.100.20'  //x
 let port = '811'
 
 module.exports = {
   build: {
     env: require('./prod.env'),
-    assetsRoot:path.resolve(__dirname, '../dist'),// path.resolve(__dirname, '../dist'),
+    assetsRoot:path.resolve(__dirname, '../dist'),
     assetsSubDirectory:'static' ,
     assetsPublicPath: '/',
     productionSourceMap:false,
     productionGzip: true,
-    productionGzipExtensions: ['js', 'css'],
-    bundleAnalyzerReport: process.env.npm_config_report
-  },
-  build_test: {
-    env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist_test/main.html'),
-    assetsRoot: path.resolve(__dirname, '../dist_test'),
-    assetsSubDirectory:'static' ,
-    assetsPublicPath: '/',
-    productionSourceMap:true,
-    productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report
   },
@@ -31,7 +21,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/index.php': {
+      '/mock': {
         'target': {
           'host': host
           , 'protocol': 'http:'
@@ -43,28 +33,6 @@ module.exports = {
            return '/index.html';
            }*/
         }
-      },
-        '/upload': {
-            'target': {
-                'host': host
-                , 'protocol': 'http:'
-                , 'port': port
-            },
-            secure: false,
-            bypass: function (req, res, proxyOptions) {
-              /* if (req.headers.accept.indexOf('html') !== -1) {
-               return '/index.html';
-               }*/
-            }
-        },
-      '/echo': {
-        ws: true,
-        'target': {
-          'host': host
-          , 'protocol': 'ws:'
-          , 'port': '50001'
-        },
-        secure: false
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

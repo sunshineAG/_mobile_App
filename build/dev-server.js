@@ -39,7 +39,7 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
-// proxy api requests
+// proxy api requests 方便拓展多个接口
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {

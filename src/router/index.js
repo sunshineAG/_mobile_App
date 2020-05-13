@@ -1,41 +1,35 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '@/components/login'
+
 
 Vue.use(Router)
 
 export default new Router({
     mode:'history',
     routes: [
-        {path: '/', redirect: '/login'},
+        {path: '/', redirect: '/home'},
         {
-            path: '/login',
-            name: 'login',
-            component:  () => import('@/components/login')
+            path: '/home',
+            name: 'Home',
+            component:  () => import('@/components/Home')
         },
-        // {
-      //   path: '/login',
-      //   name: '登录页',
-      //   component: login,
-      //   invisible: true
-      // },
+        {
+            path: '/SiteSearch',
+            component:  () => import('@/components/SiteSearch')
+        }
       // {
       //     path: '/exception',
       //     name: '异常页',
-      //     icon: 'warning',
-      //     component: RouteView,
-      //     invisible: true,
+      //     component: HOME,
       //     children: [
       //         {
       //             path: '/exception/404',
       //             name: '404',
-      //             icon: 'none',
       //             component: () => import('@/view/exception/404')
       //         },
       //         {
       //             path: '/exception/403',
       //             name: '403',
-      //             icon: 'none',
       //             component: () => import('@/view/exception/403')
       //         },
       //         {
@@ -45,6 +39,6 @@ export default new Router({
       //             component: () => import('@/view/exception/500')
       //         }
       //     ]
-      // },
+      // }
     ]
 })
